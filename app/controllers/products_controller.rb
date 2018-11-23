@@ -3,9 +3,11 @@ class ProductsController < ApplicationController
 		@products = Product.all
 	end
 
+
 	def new
 		@product = Product.new
 	end
+
 
 	def create
 		@product = Product.new(product_params)
@@ -16,13 +18,26 @@ class ProductsController < ApplicationController
 		end
 	end
 
+
 	def show
 		@product = Product.find(params[:id])
 	end
 
+
 	def edit
 		@product = Product.find(params[:id])
 	end
+
+
+	def update
+		@product = Product.find(params[:id])
+		if @product.update(product_params)
+			redirect_to products_path, notice: "El producto ha sido modificado con Exito"
+		else
+			render :edit
+		end
+	end
+	
 
 	private
 		def product_params
