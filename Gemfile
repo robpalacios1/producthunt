@@ -32,6 +32,10 @@ gem 'annotate'
 
 gem 'gravatar-ultimate'
 
+gem "image_processing", "~> 1.2"
+
+gem "mini_magick", "~> 4.8"
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
