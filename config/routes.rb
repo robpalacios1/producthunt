@@ -3,10 +3,11 @@ Rails.application.routes.draw do
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
-  delete 'logout', to: 'session#destroy'
+  delete 'logout', to: 'sessions#destroy'
   
   resources :users, only: [:new, :create]
   resources :products do 
+    resource :vote, only: [:create, :destroy]
     resources :comments, only: [:create]
   end
   #get '/products', to: 'products#index'
